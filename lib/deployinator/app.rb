@@ -199,6 +199,10 @@ module Deployinator
       send_file "#{File.dirname(__FILE__)}/static/js/stats_load.js"
     end
 
+    get '/js/ansi_up.js' do
+      send_file "#{File.dirname(__FILE__)}/static/js/ansi_up.js"
+    end
+
     get '/images/maintenance.gif' do
       send_file "#{File.dirname(__FILE__)}/static/images/maintenance.gif"
     end

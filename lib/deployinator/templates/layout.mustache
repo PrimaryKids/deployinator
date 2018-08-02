@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="/static/css/jquery-ui-1.8.24.css" type="text/css" media="screen">
         <script src="/js/jquery-1.8.3.min.js"></script>
         <script src="/js/jquery-ui-1.8.24.min.js"></script>
+        <script src="/js/ansi_up.js"></script>
         {{{ additional_header_html }}}
     </head>
     <body>
@@ -150,6 +151,7 @@ _  __  / _  _ \___  __ \__  / _  __ \__  / / /__  / __  __ \_  __ `/_  __/_  __ 
                 }
 
                 function connect_web_socket(stack, rnd_id, bar, button) {
+                  var ansi_up = new AnsiUp;
                   var bufferedMsg = '';
                   var append;
                   var ws_scheme = (location.protocol === 'http:') ? 'ws:' : 'wss:';
@@ -171,7 +173,8 @@ _  __  / _  _ \___  __ \__  / _  __ \__  / / /__  / __  __ \_  __ `/_  __/_  __ 
                           }
                           return false;
                         });
-                        el.html(bufferedMsg);
+                        // el.html(bufferedMsg);
+                        el.html(ansi_up.ansi_to_text(bufferedMsg));
                       }, 50);
                     }
                   }
