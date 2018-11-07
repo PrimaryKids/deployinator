@@ -148,7 +148,7 @@ module Deployinator
         env = "force asset rebuild"
       else
         env = options[:method][/(dev|qa|production|princess|preprod|prod|webs|stage|staging|config)/i, 1] || "other"
-        env = "production" if env.match(/prod|webs/)
+        env = "production" if env.match(/^prod|webs/)
       end
 
       # display a message that the deploy is done and call the JavaScript
